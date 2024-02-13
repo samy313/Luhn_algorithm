@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Luhn_formula {
@@ -32,9 +33,9 @@ public class Luhn_formula {
                 }
 
                 if(sum % 10 == 0) {
-                    return sum + " est divisible par 10, donc ce numéro de carte (" + this.card_number + ") est valide !";
+                    return "Ce numéro de carte (" + this.card_number + ") est valide !";
                 } else {
-                    return sum + " n'est pas divisible par 10, donc ce numéro de carte (" + this.card_number + ") est invalide.";
+                    return "Ce numéro de carte (" + this.card_number + ") est invalide.";
                 }
             }catch(NumberFormatException e){
                 return "Erreur : " + e + "\n" + "Chaîne invalide, seuls les chiffres sont autorisés.";
@@ -52,7 +53,7 @@ public class Luhn_formula {
             String result1 = card1.luhn_algorithm();
             System.out.println(result1);
             System.out.println("Entrez un nouveau numéro (Y/N) ?");
-            if(sc.next().equals("N")){
+            if(sc.next().toUpperCase().equals("N")){
                 System.out.println("Fin du programme.");
                 again = false;
                 sc.close();
